@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
 
   HomeScreen() {
     _feedCategoryBloc.currentSelectedTab = 1;
-    _bottomTabWidgetList.add(AddFeed());
+    _bottomTabWidgetList.add(AddNews());
     _bottomTabWidgetList.add(_feedItemList);
   }
 

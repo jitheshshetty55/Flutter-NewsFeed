@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/pages/home_page.dart';
+import 'views/pages/drawer_page.dart';
 import 'utils/theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // navigatorKey: Catcher.navigatorKey,
       theme: FeedReaderTheme.feedReaderTheme,
-      home:HomeScreen(),
+      home:DrawerScreen(),
     );
   }
 }

@@ -23,10 +23,10 @@ mixin Constants {
   static const FEED_LIST_HEADER = "Category";
    static const FEED_LIST_DEFAULT_CATEGORY = "Technology";
 
-  static const ADD_FEED_HEADER = "Add Feed";
+  static const ADD_FEED_HEADER = "Add News";
   static const ADD_FEED_SUB_HEADER = "Categories";
 
-  static const SELECT_FEED_HEADER = "Select Feed";
+  static const SELECT_FEED_HEADER = "Select News";
 
   static const NO_CATEGORIES_ADDED =
       "No categories added. You have to add categories from $APP_TITLE Web Admin app.";
@@ -34,8 +34,6 @@ mixin Constants {
       "No feeds available under the selected category. You have to add feeds from $APP_TITLE Web Admin app.";
   static const NO_FEED_ADDED =
       "You have to add a feed for showing the details. Feeds can be added from Add Feed.";
-  static const NO_FEED_TO_PLAY =
-      "You dont have any feeds to play. Please add the feeds using Add Feed option.";
   static const NO_FEEDS_AFTER_FILTERING =
       "No feeds available for display. Please check the filter condition.";
 
@@ -58,6 +56,8 @@ mixin Constants {
 
 
   static const String ERROR_LOADING_IMAGE_TEXT = "Failed to Load the Image";
+  static const SORT_ASCEND = "Date ASC";
+  static const SORT_DESCEND = "Date DESC";
   static const STORAGE_LOAD_ERROR = "Error while opening the storage";
 
 }

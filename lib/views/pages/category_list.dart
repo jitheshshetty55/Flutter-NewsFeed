@@ -14,16 +14,16 @@ import '../pages/select_feed_page.dart';
 import '../../utils/constants.dart';
 import '../custom_widgets/alert_message_view.dart';
 
-class AddFeed extends StatefulWidget {
-  AddFeed();
+class AddNews extends StatefulWidget {
+  AddNews();
 
   @override
   State<StatefulWidget> createState() {
-    return _AddFeedState();
+    return _AddNewsState();
   }
 }
 
-class _AddFeedState extends State<AddFeed>
+class _AddNewsState extends State<AddNews>
     with TickerProviderStateMixin, Constants {
   FeedCategoryBloc _feedCategoryBloc = FeedCategoryBloc();
 
