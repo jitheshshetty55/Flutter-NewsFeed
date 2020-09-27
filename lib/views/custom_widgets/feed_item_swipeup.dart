@@ -44,7 +44,7 @@ class FeedtinderSwiperState extends State<FeedtinderSwiper>
         Padding(
           padding: EdgeInsets.only(top: 20),
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.55, // 400,
+            height: MediaQuery.of(context).size.height * 0.50, // 400,
             child: new TinderSwapCard(
               swipeUp: true,
               swipeDown: false,
@@ -62,7 +62,7 @@ class FeedtinderSwiperState extends State<FeedtinderSwiper>
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
+                        height: MediaQuery.of(context).size.height * 0.20,
                         width: MediaQuery.of(context).size.width,
                         color: ColorConstants.imageBackgroundColor,
                         child: ClipRRect(
