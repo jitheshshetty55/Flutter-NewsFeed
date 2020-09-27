@@ -18,10 +18,10 @@ class FeedtinderSwiper extends StatefulWidget {
   FeedtinderSwiper(this._feedItemDetails, this._feedListState);
 
   @override
-  FeedItemSwiperState createState() => FeedItemSwiperState();
+  FeedtinderSwiperState createState() => FeedtinderSwiperState();
 }
 
-class FeedItemSwiperState extends State<FeedtinderSwiper>
+class FeedtinderSwiperState extends State<FeedtinderSwiper>
     with TickerProviderStateMixin {
 
   @override
@@ -42,9 +42,9 @@ class FeedItemSwiperState extends State<FeedtinderSwiper>
       children: <Widget>[
         //_feedCategoryList(_feedCategory),
         Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: Expanded(child:Container(
-            height: MediaQuery.of(context).size.height * 0.51, // 400,
+          padding: EdgeInsets.only(top: 20),
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.55, // 400,
             child: new TinderSwapCard(
               swipeUp: true,
               swipeDown: false,
@@ -53,7 +53,7 @@ class FeedItemSwiperState extends State<FeedtinderSwiper>
               stackNum: 3,
               swipeEdge: 4.0,
               maxWidth: MediaQuery.of(context).size.width * 0.9,
-              maxHeight: MediaQuery.of(context).size.width * 0.9,
+              maxHeight: MediaQuery.of(context).size.width * 1.0,
               minWidth: MediaQuery.of(context).size.width * 0.8,
               minHeight: MediaQuery.of(context).size.width * 0.8,
               cardBuilder: (context, index) => Card(
@@ -134,7 +134,6 @@ class FeedItemSwiperState extends State<FeedtinderSwiper>
               },
             )),
           ),
-        )
       ],
     );
   }
@@ -143,14 +142,13 @@ class FeedItemSwiperState extends State<FeedtinderSwiper>
   Widget _createShareTab(BuildContext context, int index) {
     return Align(
       alignment: Alignment.bottomRight,
-      child:  Expanded(
           child: IconButton(
             icon: Icon(Icons.share, color: Theme.of(context).iconTheme.color),
             onPressed: () {
               Share.share(widget._feedItemDetails[index].link,
                   subject: widget._feedItemDetails[index].title);
             },
-          ))
+          )
     );
   }
 }
