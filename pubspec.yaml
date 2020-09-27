@@ -25,6 +25,15 @@ dependencies:
   cupertino_icons: ^0.1.2
     # Package used for bottom navigation bar
   curved_navigation_bar: ^0.3.4
+  # Package for http request
+  http: ^0.12.2
+    #  Package to load and cache network images. Can also be used with placeholder and error widgets.
+  cached_network_image: ^2.0.0-rc
+    # Collection of loading indicators animated with flutter.
+  flutter_spinkit: ^4.1.1+1
+
+
+
 
 dev_dependencies:
   flutter_test:
