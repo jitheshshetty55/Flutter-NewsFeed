@@ -1,21 +1,22 @@
 //---------------------------------------------------------------------------------------
-//    Add Feed Page
-//      Used to display the list of Feed Categories.
+//    Select Feed Page
+//      Used to display the list of Feed sources under a Category.
 //---------------------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 
 
-class AddFeed extends StatefulWidget {
-  AddFeed();
+class SelectFeed extends StatefulWidget {
+  final String _categoryName;
+  SelectFeed(this._categoryName);
 
   @override
   State<StatefulWidget> createState() {
-    return _AddFeedState();
+    return _SelectFeedState();
   }
 }
 
-class _AddFeedState extends State<AddFeed> {
+class _SelectFeedState extends State<SelectFeed> {
 
 
   @override
@@ -23,11 +24,12 @@ class _AddFeedState extends State<AddFeed> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container()
-    );
+      body:Container()
+      );
   }
 
 }
