@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../pages/feed_item_list_page.dart';
-import '../pages/add_feed_page.dart';
+import '../pages/category_list.dart';
 import '../../blocs/feed_category_bloc.dart';
 
 //Home screen used for handling bottom tab navigation

@@ -39,6 +39,18 @@ mixin Constants {
   static const NO_FEEDS_AFTER_FILTERING =
       "No feeds available for display. Please check the filter condition.";
 
+  static const MODE_MENU_CAROUSAL = "Default";
+  static const MODE_MENU_GRID = "Grid";
+  static const MODE_MENU_GRID_LIST = "GridList";
+  static const MODE_MENU_CLEAR = "Empty";
+
+  static const MODE_MENU_OPEN = "Open";
+  static const MODE_MENU_CLOSE = "Close";
+  static const FILTER_SORT_HEADER = "Filter/Sort";
+  static const FILTER_OPTION = "Filter";
+  static const FILTER_PROPERTY_ALL = "All";
+  static const FILTER_PROPERTY_LATEST = "Today";
+
   // Added By: Jithesh - Minimum Screen Size constants for different screens
   static const SCREEN_SIZE_DESKTOP = 1100;
   static const SCREEN_SIZE_TABLET = 600;

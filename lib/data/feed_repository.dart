@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../data/feed_api_provider.dart';
+import '../models/feed_item_details.dart';
 import '../models/feed_category.dart';
 import '../models/feed.dart';
 import '../utils/constants.dart';
@@ -12,22 +14,38 @@ class FeedRepository with Constants {
 
   FeedsAPIProvider _feedsAPIProvider;
 
+  //List keeping all of the feed items
+  List<FeedItemDetails> _feedItemList;
+  //List keeping filtered feed items
+  List<FeedItemDetails> _filteredItemList;
+  //List keeping favourite feed items
+  List<FeedItemDetails> _favouriteItemList;
   //List keeping the feed data used for loading the feed item list
   List<Feed> _feedList;
-
-
+  //SharedPreference storage for keeping the app state
+  SharedPreferences _storage;
 
   //creating singleton of FeedRepository
   factory FeedRepository() => _instance;
 
   FeedRepository._internalFeedRepo() {
     _feedsAPIProvider = FeedsAPIProvider();
+    _feedItemList = List<FeedItemDetails>();
 
+
+    //Storing the default data from shared preference storage
+    _loadDataFromStorage();
   }
 
+  //Getter for FeedItem list
+  get feedItemList => _feedItemList;
+
+  //Getting the favourite list
+  get favouriteItemList => _favouriteItemList;
 
   //Returning the list of selected feeds for populating the feed details
   get feedList => _getFeedList();
+
 
   //Checking whether the _feedList is null else only selected feeds returned
   List<Feed> _getFeedList() {
@@ -39,6 +57,12 @@ class FeedRepository with Constants {
     }
   }
 
+
+// -- Taking the feed object so that I can use the required feed fields.
+  Future<List<FeedItemDetails>> fetchFeedItemList(Feed _sourceFeed) async {
+    // return _feedsAPIProvider.fetchFeedItemList(category, url);
+    return _feedsAPIProvider.fetchFeedItemList(_sourceFeed);
+  }
 
   //Using the fetchFeedCategories of FeedsAPIProvider feed categories are fetched for the given url
   Future<List<FeedCategory>> fetchFeedCategories() =>
@@ -86,7 +110,40 @@ class FeedRepository with Constants {
       }
     });
 
+    _storeFeedList(_feedList);
+
     return feedResponse;
   }
+
+
+
+  //The default values for feed list, sort order and feed details text size is stored from shared preferences
+  _loadDataFromStorage() async {
+    _storage = await SharedPreferences.getInstance();
+    //Taking the FeedList from stored data
+    _feedList = _createFeedList();
+  }
+
+  //Creating the Feed list object from the stored data
+  List<Feed> _createFeedList() {
+    List<Feed> feedList = List<Feed>();
+    List<String> feedJSONList =
+    (_storage.getStringList('feedlist') ?? List<String>());
+    if (feedJSONList.length > 0)
+      feedList =
+          feedJSONList.map((feed) => Feed.fromJSON(json.decode(feed))).toList();
+
+    return feedList;
+  }
+
+
+  //Storing the selected feeds in shared preferences
+  _storeFeedList(List<Feed> feedList) async {
+    List<String> feedJSONList = List<String>();
+    feedList = feedList.where((feedItem) => feedItem.isSelected).toList();
+    feedJSONList = feedList.map((feed) => json.encode(feed)).toList();
+    await _storage.setStringList('feedlist', feedJSONList);
+  }
+
 
 }
